@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {DateService} from "../shared/services/date.service";
+import {DateService} from "../../shared/services/date.service";
 import {Subscription} from 'rxjs/Subscription';
 
 
 @Component({
   selector: 'pager',
-  templateUrl: 'pager.component.html',
-  styleUrls: ['../styles.css']
+  templateUrl: './pager.component.html',
+  styleUrls: ['../../styles.css']
 
 })
 

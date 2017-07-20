@@ -2,8 +2,8 @@ import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'simple-day',
-  templateUrl: 'simple-day.component.html',
-  styleUrls: ['../styles.css']
+  templateUrl: './simple-day.component.html',
+  styleUrls: ['../../styles.css']
 
 })
 

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import {Subscription} from "rxjs/Subscription";
-import {DateService} from "../shared/services/date.service";
+import {DateService} from "../../shared/services/date.service";
 
 @Component({
   selector: 'calendar',
-  templateUrl: 'calendar.component.html',
-  styleUrls: ['../styles.css']
+  templateUrl: './calendar.component.html',
+  styleUrls: ['../../styles.css']
 
 })
 
