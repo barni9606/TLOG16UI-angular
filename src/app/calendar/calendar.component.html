@@ -4,7 +4,7 @@
     <div class="row bg-inverse text-white" id="day-names">
       <div *ngFor="let dayName of dayNames; let i = index" class="col-md-1" [ngClass]="{'col-md-offset-3': i === 0}">{{dayName}}</div>
     </div>
-    <div id="days">
+    <div><week *ngFor="let week of weeks" [firstDayOfWeek]="week.valueOf()" [lastDayOfMonth]="daysInMonth"></week>
     </div>
   </div>
 </div>
