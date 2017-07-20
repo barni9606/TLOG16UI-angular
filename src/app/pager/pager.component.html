@@ -1,14 +1,14 @@
 <div class="text-center">
-  <a class="" onclick="changeMonth(-1)">
+  <a class="" (click)="changeMonth(-1)">
     <span class="glyphicon glyphicon-chevron-left" id="month-left" ></span></a>
-  <span id="month"></span>
-  <a class="" onclick="changeMonth(1)">
+  <span>{{monthNames[month]}}</span>
+  <a class="" (click)="changeMonth(1)">
     <span class="glyphicon glyphicon-chevron-right" id="month-right" ></span></a>
 
-  <a class="" onclick="changeMonth(-12)">
+  <a class="" (click)="changeMonth(-12)">
     <span class="glyphicon glyphicon-chevron-left" id="year-left" ></span></a>
-  <span id="year"></span>
-  <a class="" onclick="changeMonth(12)">
+  <span>{{year}}</span>
+  <a class="" (click)="changeMonth(12)">
     <span class="glyphicon glyphicon-chevron-right" id="year-right" ></span></a>
 
 </div>

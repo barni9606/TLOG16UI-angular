@@ -15,6 +15,7 @@ import {TaskListComponent} from "../../task-list/task-list.component";
 import {TaskListTableComponent} from "../../task-list-table/task-list-table.component";
 import {WeekComponent} from "../../week/week.component";
 import {WeekendComponent} from "../../weekend/weekend.component";
+import {DateService} from "../services/date.service";
 
 @NgModule({
   imports: [
@@ -38,7 +39,7 @@ import {WeekendComponent} from "../../weekend/weekend.component";
 
 
   ],
-  providers: [  ],
+  providers: [ DateService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
