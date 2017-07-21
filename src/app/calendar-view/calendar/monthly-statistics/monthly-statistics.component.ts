@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'monthly-statistics',
+  selector: 'app-monthly-statistics',
   templateUrl: './monthly-statistics.component.html',
-  styleUrls: ['../../styles.css']
+  styleUrls: ['../../../styles.css']
 
 })
 

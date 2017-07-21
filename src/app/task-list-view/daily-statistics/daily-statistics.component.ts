@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'daily-statistics',
+  selector: 'app-daily-statistics',
   templateUrl: 'daily-statistics.component.html',
   styleUrls: ['../../styles.css']
 

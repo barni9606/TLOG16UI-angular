@@ -1,10 +1,12 @@
 .bg-inverse {
   background-color: #292b2c !important;
 }
+
 .text-white {
   color: #fff !important;
 }
-.col-centered{
+
+.col-centered {
   float: none;
   margin: 0 auto;
 }
@@ -13,30 +15,32 @@ a {
   color: inherit;
   cursor: pointer;
 }
+
 a:link, a:visited {
   color: inherit;
 }
+
 a:hover {
   color: red;
 }
 
-.day:hover{
+.day:hover {
   color: blue;
   cursor: pointer;
 }
 
-.selected{
+.selected {
   color: blue;
 }
 
-.negativeExtraMin{
+.negativeExtraMin {
   color: red;
 }
 
-.positiveExtraMin{
+.positiveExtraMin {
   color: green;
 }
 
-.activated{
+.activated {
 
 }
