@@ -7,7 +7,7 @@
       </div>
     </div>
     <div>
-      <app-week *ngFor="let week of weeks" [firstDayOfWeek]="week.valueOf()" [lastDayOfMonth]="daysInMonth"></app-week>
+      <app-week *ngFor="let week of weeks" [firstDayOfWeek]="week.valueOf()" [lastDayOfMonth]="daysInMonth" [workDays]="days"></app-week>
     </div>
   </div>
 </div>

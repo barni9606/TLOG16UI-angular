@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-work-day',
@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
 })
 
 export class WorkDayComponent {
+  @Input() day: number;
+  @Input() extraMinPerDay: number;
 
 }

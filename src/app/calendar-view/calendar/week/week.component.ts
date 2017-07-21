@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Week } from '../../../shared/classes/week';
+import { Day } from '../../../shared/classes/day';
 
 @Component({
   selector: 'app-week',
@@ -7,21 +9,20 @@ import { Component, Input, OnInit } from '@angular/core';
 
 })
 
-export class WeekComponent implements OnInit{
+export class WeekComponent implements OnInit {
   @Input() firstDayOfWeek: number;
   @Input() lastDayOfMonth: number;
-  days: number[];
+  @Input() workDays: any[];
+  workWeek: Week = new Week();
 
   ngOnInit(): void {
-    if (this.lastDayOfMonth - this.firstDayOfWeek < 7) {
-      this.days = Array(this.lastDayOfMonth - this.firstDayOfWeek + 1);
-
-    } else {
-
-      this.days = Array(7);
-    }
-    for (let i = 0; i < this.days.length; i++) {
-      this.days[i] = this.firstDayOfWeek + i;
+    this.workWeek.setDays(this.firstDayOfWeek, this.lastDayOfMonth);
+    for (const workDay of this.workDays) {
+      if ( workDay['actualDay']['dayOfMonth'] <= this.workWeek.days[this.workWeek.days.length - 1].day
+        && workDay['actualDay']['dayOfMonth'] >= this.workWeek.days[0].day) {
+        this.workWeek.days[workDay['actualDay']['dayOfMonth'] - this.firstDayOfWeek].extraMinPerDay = workDay['extraMinPerDay'];
+        this.workWeek.days[workDay['actualDay']['dayOfMonth'] - this.firstDayOfWeek].active = true;
+      }
     }
   }
 }
