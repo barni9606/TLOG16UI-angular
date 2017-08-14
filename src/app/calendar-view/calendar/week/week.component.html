@@ -1,4 +1,4 @@
 <div *ngFor="let day of workWeek.days; let i = index" class="col-md-1 day" [ngClass]="{'col-md-offset-3': i === 0}">
-  <app-simple-day *ngIf="day.day > 0 && !day.active" [day]="day.day"></app-simple-day>
-  <app-work-day *ngIf="day.day > 0 && day.active" [day]="day.day" [extraMinPerDay]="day.extraMinPerDay"></app-work-day>
+  <app-simple-day *ngIf="day.day > 0 && !day.active" [ngClass]="{'selected': day.selected}" [day]="day"></app-simple-day>
+  <app-work-day *ngIf="day.day > 0 && day.active"  [ngClass]="{'selected': day.selected}" [day]="day"></app-work-day>
 </div>

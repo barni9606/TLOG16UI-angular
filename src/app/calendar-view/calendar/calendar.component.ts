@@ -19,25 +19,29 @@ export class CalendarComponent implements OnInit, OnDestroy {
   firstDay: number;
   daysInMonth: number;
   numberOfWeeks: number;
-  weeks: number[];
+  // weeks: number[];
   month: Month;
   // data from backend
   days: any[];
   // selected day
-  selectedDay: boolean;
+  selectedDay = false;
 
   constructor(private dateService: DateService, private backendService: BackendService) {
   }
 
   selectDay() {
+    if (this.selectedDay) {
+
+    }
     this.selectedDay = true;
   }
 
   ngOnInit(): void {
+    this.month = new Month(this.dateService);
     this.dateSubscription = this.dateService.dateObservable.subscribe(date => {
       if (this.date && this.date.getFullYear() === date.getFullYear() && this.date.getMonth() === date.getMonth()) {
-        this.date = date;
         this.selectDay();
+        this.date = date;
       } else {
         this.date = date;
 
@@ -45,26 +49,14 @@ export class CalendarComponent implements OnInit, OnDestroy {
         this.backendService.getMonth(this.date.getFullYear(), this.date.getMonth()).subscribe(data => {
           this.days = data;
           this.drawCalendar();
+          console.log(this.month);
         });
       }
     });
   }
 
   private drawCalendar(): void {
-    this.firstDay = this.dateService.getFirstDayOfWeekInMonth();
-    if (this.firstDay === 0) {
-      this.firstDay = 7;
-    }
-    this.firstDay = this.firstDay * -1 + 2;
-    this.daysInMonth = this.dateService.getNumberOfDaysInMonth();
-    this.numberOfWeeks = -1 * this.firstDay + this.daysInMonth + 1;
-    this.numberOfWeeks = Math.ceil(this.numberOfWeeks / 7);
-    this.weeks = Array(this.numberOfWeeks);
-    let asd: number = this.firstDay;
-    for (let i = 0; i < this.weeks.length; i++) {
-      this.weeks[i] = asd;
-      asd += 7;
-    }
+    this.month = new Month(this.dateService, this.days);
   }
 
   ngOnDestroy() {

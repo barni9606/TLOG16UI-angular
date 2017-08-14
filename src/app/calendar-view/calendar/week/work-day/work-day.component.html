@@ -1,1 +1,2 @@
-<div [ngClass]="{'negativeExtraMin':extraMinPerDay < 0,'positiveExtraMin':extraMinPerDay >= 0}">{{day}} ({{extraMinPerDay}})</div>
+<div [ngClass]="{'negativeExtraMin':day.extraMinPerDay < 0,'positiveExtraMin':day.extraMinPerDay >= 0}" (click)="select()">
+  {{day.day}} ({{day.extraMinPerDay}})</div>

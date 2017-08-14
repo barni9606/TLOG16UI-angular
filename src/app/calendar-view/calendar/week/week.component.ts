@@ -10,19 +10,8 @@ import { Day } from '../../../shared/classes/day';
 })
 
 export class WeekComponent implements OnInit {
-  @Input() firstDayOfWeek: number;
-  @Input() lastDayOfMonth: number;
-  @Input() workDays: any[];
-  workWeek: Week = new Week();
+  @Input() workWeek: Week;
 
   ngOnInit(): void {
-    this.workWeek.setDays(this.firstDayOfWeek, this.lastDayOfMonth);
-    for (const workDay of this.workDays) {
-      if ( workDay['actualDay']['dayOfMonth'] <= this.workWeek.days[this.workWeek.days.length - 1].day
-        && workDay['actualDay']['dayOfMonth'] >= this.workWeek.days[0].day) {
-        this.workWeek.days[workDay['actualDay']['dayOfMonth'] - this.firstDayOfWeek].extraMinPerDay = workDay['extraMinPerDay'];
-        this.workWeek.days[workDay['actualDay']['dayOfMonth'] - this.firstDayOfWeek].active = true;
-      }
-    }
   }
 }
