@@ -21,6 +21,7 @@ import { BackendService } from './shared/services/backend.service';
 import { ActivateDayFormComponent } from './calendar-view/calendar/activate/activate-day-form.component';
 import { RequiredMinValidatorDirective } from './shared/validators/required-mins-validator.directive';
 import { EditTaskFormComponent } from './task-list-view/edit-task-form/edit-task-form.component';
+import { TaskIdValidatorDirective } from './shared/validators/task-id-validator.directive';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { EditTaskFormComponent } from './task-list-view/edit-task-form/edit-task
     WorkDayComponent,
     ActivateDayFormComponent,
     RequiredMinValidatorDirective,
-    EditTaskFormComponent
+    EditTaskFormComponent,
+    TaskIdValidatorDirective
 
 
   ],

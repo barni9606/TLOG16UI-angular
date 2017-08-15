@@ -9,7 +9,7 @@ import { Task } from '../../shared/classes/task';
 })
 
 export class EditTaskFormComponent {
-  task: Task;
+  task: Task = new Task();
   startTime: string;
   endTime: string;
 

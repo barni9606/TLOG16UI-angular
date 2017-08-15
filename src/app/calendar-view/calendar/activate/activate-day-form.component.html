@@ -3,7 +3,7 @@
   <form #requiredMinsForm="ngForm" (ngSubmit)="this.activateDay()">
     <div class="form-group">
       <label for="requiredMins">Required mins</label>
-      <input type="text" class="form-control" id="requiredMins" [(ngModel)]="requiredMin" name="requiredMin" appRequiredMin="" #validity="ngModel" required>
+      <input type="text" class="form-control" id="requiredMins" [(ngModel)]="requiredMin" name="requiredMin" appRequiredMinValidator="" #validity="ngModel" required>
       <div *ngIf="validity.invalid && (validity.touched || validity.dirty)"
            class="alert alert-danger">
           Has to be a decimal between 10 and 1440.

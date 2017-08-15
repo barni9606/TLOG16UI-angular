@@ -1,7 +1,8 @@
 <form #editTask="ngForm" (ngSubmit)="this.submit()">
   <div class="form-group">
     <label for="taskId">task id</label>
-    <input type="text" class="form-control" id="taskId" [(ngModel)]="task.taskId" name="taskId" #taskIdValidity="ngModel" required>
+    <input type="text" class="form-control" id="taskId" [(ngModel)]="task.taskId" name="taskId" #taskIdValidity="ngModel" appTaskIdValidator="" required #spy>
+    {{spy.className}}
     <div *ngIf="taskIdValidity.invalid && (taskIdValidity.touched || taskIdValidity.dirty)"
          class="alert alert-danger">
       Has to be a valid redmine or LT task id.
