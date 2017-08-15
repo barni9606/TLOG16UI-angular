@@ -1,0 +1,23 @@
+<table class="table table-hover" *ngIf="this.tasks">
+  <thead>
+    <tr>
+      <th>task id</th>
+      <th>comment</th>
+      <th>start time</th>
+      <th>end time</th>
+      <th>length</th>
+      <th>edit</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let task of tasks">
+    <td>{{task.taskId}}</td>
+    <td>{{task.comment}}</td>
+    <td>{{task.startTime.hour}}:{{task.startTime.minute}}</td>
+    <td>{{task.endTime.hour}}:{{task.endTime.minute}}</td>
+    <td>{{task.minPerTask}}</td>
+    <td>
+      <button type="button" class="btn btn-warning">edit</button>
+      <button type="button" class="btn btn-danger">delete</button>
+    </td>
+  </tr>
+</table>

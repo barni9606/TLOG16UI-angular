@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Task } from '../../shared/classes/task';
 
 @Component({
   selector: 'app-task-list-table',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
 })
 
 export class TaskListTableComponent {
-
+  @Input() tasks: Task[];
 }

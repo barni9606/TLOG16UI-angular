@@ -1,0 +1,32 @@
+<form #editTask="ngForm" (ngSubmit)="this.submit()">
+  <div class="form-group">
+    <label for="taskId">task id</label>
+    <input type="text" class="form-control" id="taskId" [(ngModel)]="task.taskId" name="taskId" #taskIdValidity="ngModel" required>
+    <div *ngIf="taskIdValidity.invalid && (taskIdValidity.touched || taskIdValidity.dirty)"
+         class="alert alert-danger">
+      Has to be a valid redmine or LT task id.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="startTime">start time</label>
+    <input type="text" class="form-control" id="startTime" [(ngModel)]="startTime" name="starTime" #startTimeValidity="ngModel" required>
+    <div *ngIf="startTimeValidity.invalid && (startTimeValidity.touched || startTimeValidity.dirty)"
+         class="alert alert-danger">
+      Please give the time in the following format: hh:mm (local time, 24h)
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="endTime">end time</label>
+    <input type="text" class="form-control" id="endTime" [(ngModel)]="endTime" name="endTime" #endTimeValidity="ngModel" required>
+    <div *ngIf="endTimeValidity.invalid && (endTimeValidity.touched || endTimeValidity.dirty)"
+         class="alert alert-danger">
+      Please give the time in the following format: hh:mm (local time, 24h)
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="comment">comment</label>
+    <input type="text" class="form-control" id="comment" [(ngModel)]="task.comment" name="comment" #commentValidity="ngModel">
+  </div>
+
+  <button type="submit" class="btn btn-success" [disabled]="!editTask.form.valid" >Submit</button>
+</form>

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NG_VALIDATORS } from '@angular/forms';
 import { CalendarComponent } from './calendar-view/calendar/calendar.component';
 import { DailyStatisticsComponent } from './task-list-view/daily-statistics/daily-statistics.component';
 import { MonthlyStatisticsComponent } from './calendar-view/calendar/monthly-statistics/monthly-statistics.component';
@@ -14,11 +14,13 @@ import { SimpleDayComponent } from './calendar-view/calendar/week/simple-day/sim
 import { TaskListComponent } from './task-list-view/task-list/task-list.component';
 import { TaskListTableComponent } from './task-list-view/task-list-table/task-list-table.component';
 import { WeekComponent } from './calendar-view/calendar/week/week.component';
-import { WeekendComponent } from './weekend/weekend.component';
 import { DateService } from './shared/services/date.service';
 import { WorkDayComponent } from './calendar-view/calendar/week/work-day/work-day.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BackendService } from './shared/services/backend.service';
+import { ActivateDayFormComponent } from './calendar-view/calendar/activate/activate-day-form.component';
+import { RequiredMinValidatorDirective } from './shared/validators/required-mins-validator.directive';
+import { EditTaskFormComponent } from './task-list-view/edit-task-form/edit-task-form.component';
 
 @NgModule({
   imports: [
@@ -39,8 +41,10 @@ import { BackendService } from './shared/services/backend.service';
     TaskListComponent,
     TaskListTableComponent,
     WeekComponent,
-    WeekendComponent,
-    WorkDayComponent
+    WorkDayComponent,
+    ActivateDayFormComponent,
+    RequiredMinValidatorDirective,
+    EditTaskFormComponent
 
 
   ],

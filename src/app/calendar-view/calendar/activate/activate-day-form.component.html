@@ -1,5 +1,5 @@
 <div class="container" *ngIf="!this.hidden()" >
-  <h1>Activate {{this.getDay()}}.{{this.getMonth()}}.{{this.getYear()}}</h1>
+  <h1>Activate {{this.getDay()}}.{{this.getMonth() + 1}}.{{this.getYear()}}</h1>
   <form #requiredMinsForm="ngForm" (ngSubmit)="this.activateDay()">
     <div class="form-group">
       <label for="requiredMins">Required mins</label>

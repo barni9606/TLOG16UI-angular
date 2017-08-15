@@ -5,7 +5,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a routerLink="/calendar" routerLinkActive="active">Month</a></li>
-      <li><a routerLink="/task-list" routerLinkActive="active">Day</a></li>
+      <li *ngIf="getDay()"><a routerLink="/task-list" routerLinkActive="active">Day</a></li>
     </ul>
   </div>
 </nav>

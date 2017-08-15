@@ -7,7 +7,7 @@ import { TaskListComponent } from './task-list-view/task-list/task-list.componen
 const routes: Routes = [
   {path: '', redirectTo: '/calendar', pathMatch: 'full'},
   {path: 'calendar', component: CalendarComponent},
-  {path: 'app-task-list', component: TaskListComponent},
+  {path: 'task-list', component: TaskListComponent},
 ];
 
 @NgModule({
