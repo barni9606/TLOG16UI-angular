@@ -14,6 +14,7 @@ import { Month } from '../../shared/classes/month';
 export class CalendarComponent implements OnInit, OnDestroy {
   dayNames: String[] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   dateSubscription: Subscription;
+  loadSubscription: Subscription;
   private date: Date;
   // for drawing the calendar
   firstDay: number;
@@ -46,17 +47,19 @@ export class CalendarComponent implements OnInit, OnDestroy {
         this.date = date;
 
         // backend
-        this.backendService.getMonth(this.date.getFullYear(), this.date.getMonth()).subscribe(data => {
-          this.days = data;
+        this.loadSubscription = this.backendService.loadEventObservable.subscribe(() => {
           this.drawCalendar();
-          console.log(this.month);
         });
+        this.backendService.fireLoadEvent();
       }
     });
   }
 
   private drawCalendar(): void {
-    this.month = new Month(this.dateService, this.days);
+    this.backendService.getMonth(this.date.getFullYear(), this.date.getMonth()).subscribe(data => {
+      this.days = data;
+      this.month = new Month(this.dateService, this.days);
+    });
   }
 
   ngOnDestroy() {

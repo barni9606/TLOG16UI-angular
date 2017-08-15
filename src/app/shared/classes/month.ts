@@ -4,7 +4,6 @@ export class Month {
   weeks: Week[];
   requiredMinPerMonth: number;
   extraMinPerMonth: number;
-  days: any[]; // input data
   firstDayOfMonth: number;
   daysInMonth: number;
   numberOfWeeks: number;
@@ -25,6 +24,8 @@ export class Month {
       this.weeks[i] = new Week(firstDayOfWeek, this.daysInMonth);
       firstDayOfWeek += 7;
     }
+    this.requiredMinPerMonth = 0;
+    this.extraMinPerMonth = 0;
     if (days !== null) {
       for (const day of days) {
         for (let i = 0; i < this.numberOfWeeks; i++) {
@@ -33,6 +34,8 @@ export class Month {
             this.weeks[i].setWorkDay(day['actualDay']['dayOfMonth'], true, day['extraMinPerDay'], day['requiredMinPerDay']);
           }
         }
+        this.requiredMinPerMonth += day['requiredMinPerDay'];
+        this.extraMinPerMonth += day['extraMinPerDay'];
       }
     }
   }

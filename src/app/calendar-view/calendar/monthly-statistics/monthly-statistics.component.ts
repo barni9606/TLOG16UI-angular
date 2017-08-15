@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-monthly-statistics',
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 
 export class MonthlyStatisticsComponent {
-  extraMinPerMonth: number;
-  requiredMinPerMonth: number;
+  @Input() extraMinPerMonth: number;
+  @Input() requiredMinPerMonth: number;
 
 }

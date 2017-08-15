@@ -1,0 +1,21 @@
+<div class="container" *ngIf="!this.hidden()" >
+  <h1>Activate {{this.getDay()}}.{{this.getMonth()}}.{{this.getYear()}}</h1>
+  <form #requiredMinsForm="ngForm" (ngSubmit)="this.activateDay()">
+    <div class="form-group">
+      <label for="requiredMins">Required mins</label>
+      <input type="text" class="form-control" id="requiredMins" [(ngModel)]="requiredMin" name="requiredMin" appRequiredMin="" #validity="ngModel" required>
+      <div *ngIf="validity.invalid && (validity.touched || validity.dirty)"
+           class="alert alert-danger">
+          Has to be a decimal between 10 and 1440.
+      </div>
+    </div>
+    <div class="form-group" *ngIf="this.isWeekend()">
+      <label for="weekend">That's a weekend, do you still want to activate it?</label>
+      <input type="checkbox" class="form-control" id="weekend" [(ngModel)]="weekendOk" name="weekendOk" required>
+    </div>
+
+
+    <button type="submit" class="btn btn-success" [disabled]="!requiredMinsForm.form.valid" >Submit</button>
+
+  </form>
+</div>

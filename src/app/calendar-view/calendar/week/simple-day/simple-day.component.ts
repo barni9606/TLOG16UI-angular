@@ -18,7 +18,7 @@ export class SimpleDayComponent implements OnDestroy {
   }
 
   select() {
-    this.dateService.setDate(this.dateService.getYear(), this.dateService.getMonth(), this.day.day);
+    this.dateService.setDate(this.dateService.getYear(), this.dateService.getMonth(), this.day.day, this.day);
     this.day.selected = true;
     if (!this.dateSubscription) {
       this.dateSubscription = this.dateService.dateObservable.subscribe(() => {

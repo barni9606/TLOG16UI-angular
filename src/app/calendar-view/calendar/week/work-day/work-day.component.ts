@@ -18,7 +18,7 @@ export class WorkDayComponent implements OnDestroy {
   }
 
   select() {
-    this.dateService.setDate(this.dateService.getYear(), this.dateService.getMonth(), this.day.day);
+    this.dateService.setDate(this.dateService.getYear(), this.dateService.getMonth(), this.day.day, this.day);
     if (!this.dateSubscription) {
       this.dateSubscription = this.dateService.dateObservable.subscribe(() => {
         if (this.dateSubscription) {
