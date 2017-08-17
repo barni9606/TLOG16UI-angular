@@ -1,8 +1,7 @@
 <form #editTask="ngForm" (ngSubmit)="this.submit()">
   <div class="form-group">
     <label for="taskId">task id</label>
-    <input type="text" class="form-control" id="taskId" [(ngModel)]="task.taskId" name="taskId" #taskIdValidity="ngModel" appTaskIdValidator="" required #spy>
-    {{spy.className}}
+    <input type="text" class="form-control" id="taskId" [(ngModel)]="task.taskId" name="taskId" #taskIdValidity="ngModel" appTaskIdValidator="" required>
     <div *ngIf="taskIdValidity.invalid && (taskIdValidity.touched || taskIdValidity.dirty)"
          class="alert alert-danger">
       Has to be a valid redmine or LT task id.
@@ -10,7 +9,7 @@
   </div>
   <div class="form-group">
     <label for="startTime">start time</label>
-    <input type="text" class="form-control" id="startTime" [(ngModel)]="startTime" name="starTime" #startTimeValidity="ngModel" required>
+    <input type="text" class="form-control" id="startTime" [(ngModel)]="startTime" name="starTime" #startTimeValidity="ngModel" appTimeValidator="" (keyup)="startTimeChange(startTimeValidity.valid)" required>
     <div *ngIf="startTimeValidity.invalid && (startTimeValidity.touched || startTimeValidity.dirty)"
          class="alert alert-danger">
       Please give the time in the following format: hh:mm (local time, 24h)
@@ -18,7 +17,7 @@
   </div>
   <div class="form-group">
     <label for="endTime">end time</label>
-    <input type="text" class="form-control" id="endTime" [(ngModel)]="endTime" name="endTime" #endTimeValidity="ngModel" required>
+    <input type="text" class="form-control" id="endTime" [(ngModel)]="endTime" name="endTime" #endTimeValidity="ngModel" appTimeValidator="" required>
     <div *ngIf="endTimeValidity.invalid && (endTimeValidity.touched || endTimeValidity.dirty)"
          class="alert alert-danger">
       Please give the time in the following format: hh:mm (local time, 24h)
@@ -29,5 +28,6 @@
     <input type="text" class="form-control" id="comment" [(ngModel)]="task.comment" name="comment" #commentValidity="ngModel">
   </div>
 
-  <button type="submit" class="btn btn-success" [disabled]="!editTask.form.valid" >Submit</button>
+  <button *ngIf="existing()" type="submit" class="btn btn-success" [disabled]="!editTask.form.valid" >Update</button>
+  <button *ngIf="!existing()" type="submit" class="btn btn-success" [disabled]="!editTask.form.valid" >Create</button>
 </form>

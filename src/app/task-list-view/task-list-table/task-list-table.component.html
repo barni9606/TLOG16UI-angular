@@ -12,12 +12,12 @@
   <tr *ngFor="let task of tasks">
     <td>{{task.taskId}}</td>
     <td>{{task.comment}}</td>
-    <td>{{task.startTime.hour}}:{{task.startTime.minute}}</td>
-    <td>{{task.endTime.hour}}:{{task.endTime.minute}}</td>
+    <td>{{timeToString(task.startTime)}}</td>
+    <td>{{timeToString(task.endTime)}}</td>
     <td>{{task.minPerTask}}</td>
     <td>
-      <button type="button" class="btn btn-warning">edit</button>
-      <button type="button" class="btn btn-danger">delete</button>
+      <button type="button" class="btn btn-warning" (click)="editTask(task)">edit</button>
+      <button type="button" class="btn btn-danger" (click)="deleteTask(task)">delete</button>
     </td>
   </tr>
 </table>

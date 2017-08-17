@@ -1,5 +1,14 @@
 <div class="container">
-  <app-edit-task-form></app-edit-task-form>
-  <app-task-list-table [tasks]="tasks"></app-task-list-table>
+  <div *ngIf="!deletingTask">
+    <button class="btn btn-primary" (click)="this.newTask()">Create new Task</button>
+    <button class="btn btn-warning" (click)="this.cancelEditTask()" [disabled]="!editingTask">Cancel</button>
+    <app-edit-task-form *ngIf="editingTask" [task]="editingTask" [tasks]="tasks"></app-edit-task-form>
+  </div>
+  <div *ngIf="deletingTask" class="center">
+    Are you sure you want to delete this task: {{deletingTask.taskId}} ?<br />
+    <button class="btn btn-danger" (click)="this.confirmDelete()">Delete Task</button>
+    <button class="btn btn-warning" (click)="this.cancelDeleteTask()">Cancel</button>
+  </div>
+  <app-task-list-table [tasks]="tasks" (editNotify)="editTask($event)" (deleteNotify)="deleteTask($event)"></app-task-list-table>
   <app-daily-statistics [tasks]="tasks"></app-daily-statistics>
 </div>

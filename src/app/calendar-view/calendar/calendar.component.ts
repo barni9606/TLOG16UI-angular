@@ -47,10 +47,10 @@ export class CalendarComponent implements OnInit, OnDestroy {
         this.date = date;
 
         // backend
-        this.loadSubscription = this.backendService.loadEventObservable.subscribe(() => {
+        this.loadSubscription = this.backendService.loadMonthEventObservable.subscribe(() => {
           this.drawCalendar();
         });
-        this.backendService.fireLoadEvent();
+        this.backendService.fireLoadMonthEvent();
       }
     });
   }

@@ -22,6 +22,7 @@ import { ActivateDayFormComponent } from './calendar-view/calendar/activate/acti
 import { RequiredMinValidatorDirective } from './shared/validators/required-mins-validator.directive';
 import { EditTaskFormComponent } from './task-list-view/edit-task-form/edit-task-form.component';
 import { TaskIdValidatorDirective } from './shared/validators/task-id-validator.directive';
+import {TimeValidatorDirective} from './shared/validators/time-validator.directive';
 
 @NgModule({
   imports: [
@@ -46,7 +47,8 @@ import { TaskIdValidatorDirective } from './shared/validators/task-id-validator.
     ActivateDayFormComponent,
     RequiredMinValidatorDirective,
     EditTaskFormComponent,
-    TaskIdValidatorDirective
+    TaskIdValidatorDirective,
+    TimeValidatorDirective
 
 
   ],

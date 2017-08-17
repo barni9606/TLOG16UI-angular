@@ -18,8 +18,6 @@ export class Week {
   }
 
   setWorkDay (day: number, active: boolean, extraMinPerDay: number, requiredMinPerDay: number) {
-    console.log(day);
-    console.log(this.days[0].day);
     day = day - this.days[0].day;
     this.days[day].active = active;
     this.days[day].extraMinPerDay = extraMinPerDay;

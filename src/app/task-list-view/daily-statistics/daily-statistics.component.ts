@@ -1,6 +1,7 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import {AfterContentInit, AfterViewChecked, Component, Input, OnChanges, OnInit} from '@angular/core';
 import { Task } from '../../shared/classes/task';
 import { DateService } from '../../shared/services/date.service';
+import {isUndefined} from 'util';
 
 @Component({
   selector: 'app-daily-statistics',
@@ -9,17 +10,19 @@ import { DateService } from '../../shared/services/date.service';
 
 })
 
-export class DailyStatisticsComponent implements OnChanges {
+export class DailyStatisticsComponent {
   @Input() tasks: Task[];
-  extraMinutes = 0;
+
   constructor(private dateService: DateService) {}
-  ngOnChanges(): void {
+  extraMinutes(): number {
+    let temp = 0;
+    if (!isUndefined(this.tasks)) {
       for (const task of this.tasks) {
-        this.extraMinutes += task.minPerTask;
+        temp += task.minPerTask;
       }
-      this.extraMinutes -= this.dateService.day.requiredMinPerDay;
+      return temp - this.dateService.day.requiredMinPerDay;
 
-
+    }
   }
 
 

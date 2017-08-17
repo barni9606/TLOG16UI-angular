@@ -37,13 +37,13 @@ export class ActivateDayFormComponent {
     if (this.isWeekend()) {
       this.backendService.activateWeekEnd(this.getYear(), this.getMonth(), this.getDay(), temp)
         .subscribe(() => {
-          this.backendService.fireLoadEvent();
+          this.backendService.fireLoadMonthEvent();
         })
       ;
     } else {
       this.backendService.activateWeekDay(this.getYear(), this.getMonth(), this.getDay(), temp)
         .subscribe(() => {
-          this.backendService.fireLoadEvent();
+          this.backendService.fireLoadMonthEvent();
         })
       ;
     }
